@@ -1,0 +1,12 @@
+RewriteEngine on
+ErrorDocument 404 /error404.php
+
+RewriteCond %{HTTP_HOST} ^hhbd.kosiarka/(.*)
+RewriteCond %{REQUEST_URI} !^/imgs
+RewriteRule ^(.*)$ http://hhbd.kosiarka/$1 [R=301,L] 
+
+
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteCond %{REQUEST_URI} !^/xadmin
+
+RewriteRule ^([¯0-9a-zA-Z_\/]*)$ /index.php?url=$1 [L]

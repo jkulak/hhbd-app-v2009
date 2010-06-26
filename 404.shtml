@@ -1,0 +1,15 @@
+RewriteEngine on
+ErrorDocument 404 /error404.php
+
+RewriteCond %{HTTP_HOST} ^hhbd.pl(\..)*(.*)
+RewriteRule ^(.*)$ http://www.hhbd.pl$1/$2 [R=301,L] 
+
+
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteCond %{REQUEST_URI} !^/xadmin
+RewriteCond %{REQUEST_URI} !^/test
+RewriteCond %{REQUEST_URI} !^/kulig
+RewriteCond %{REQUEST_URI} !^/portfolio
+RewriteCond %{REQUEST_URI} !^/INNE
+
+RewriteRule ^([¯0-9a-zA-Z_\/]*)$ /index.php?url=$1 [L]
