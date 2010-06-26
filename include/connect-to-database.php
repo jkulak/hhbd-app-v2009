@@ -4,13 +4,13 @@ if ( getenv('ENVIRONMENT') == "DEV" ) {
   $dbHost = 'localhost';
   $dbUser = 'www';
   $dbPassword = 'www';
-  $dbSchema = 'hhbd';
+  $dbSchema = 'hhbdrebuild';
 }
 else {
-  $dbHost = 'sql.cal.pl';
-  $dbUser = 'hhbd_hhbd';
-  $dbPassword = 'web';
-  $dbSchema = 'hhbd_hhbd';
+  $dbHost = '';
+  $dbUser = '';
+  $dbPassword = '';
+  $dbSchema = '';
 }
 
 
