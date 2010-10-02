@@ -30,7 +30,7 @@ if (isset($addres[2])) {
 }
 
 
-// TODO: get rid of below stats
+// TODO: get rid of below stats 
 //include ('include/visitor-stats.php');
 
 
