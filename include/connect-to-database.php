@@ -1,6 +1,6 @@
 <?php
 
-if ( getenv('ENVIRONMENT') == "DEV" ) {
+if ( PHPENV == 'DEV' ) {
   $dbHost = 'localhost';
   $dbUser = 'www';
   $dbPassword = 'www';
@@ -19,13 +19,7 @@ $sqlc = mysql_connect($dbHost, $dbUser, $dbPassword);
 if (!$sqlc) {
 	$smarty->assign('errormsg', 'Nie można połączyć się z bazą!');
 	}
-
   
 if (!mysql_select_db($dbSchema) ) {
 	$smarty->assign('errormsg', 'Nie można odnaleźć bazy!');
 	}
-	
-	
-	
-
-?>

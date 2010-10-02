@@ -1,6 +1,9 @@
 <?php
 
-putenv('ENVIRONMENT=DEV');
+defined('PHPENV') ||
+  define('PHPENV', (getenv('PHPENV') ? getenv('PHPENV') : 'PROD'));
+
+
 error_reporting(E_ALL & ~E_NOTICE);
 
 if (isset($_COOKIE[session_name()])) { session_start(); }
@@ -27,7 +30,8 @@ if (isset($addres[2])) {
 }
 
 
-include ('include/visitor-stats.php');
+// TODO: get rid of below stats
+//include ('include/visitor-stats.php');
 
 
 // header stats
