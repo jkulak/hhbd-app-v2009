@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:53:28
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:54:58
          compiled from site/top10.tpl */ ?>
 <div id="sitetitle">
 <div id="titleleft">

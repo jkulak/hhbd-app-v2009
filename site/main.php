@@ -1,64 +1,10 @@
 <?php
 
 	//*****************************************************************	
-	$smarty->assign('title', 'HHBD.PL - HIP-HOPOWA BAZA DANYCH');
-	$smarty->assign('description', 'Najwiêksza baza informacji o polskim hip-hopie. Premiery, zapowiedzi, wydane albumy, profile i biografie wykonawców, teksty, sample, wywiady, informacje imprezowe i wiele wiêcej.');
+	$smarty->assign('title', 'HHBD.PL - Polski hip-hop, albumy, zapowiedzi, wykonawcy');
+	$smarty->assign('description', 'Polski hip-hop, najwiÄ™ksza baza informacji, najnowsze albumy, informacje o wykonawcach.');
 	$smarty->assign('cssfile', 'main');
 	//*****************************************************************
-	
-	
-	
-	
-// ************************************************************* LISTA NEWSOW
-$part -= 1;
-$part *= $ile_na_stronie;
-
-$news_titles_list = array();
-$news_ids_list = array();
-$news_dates_list = array();
-$news_list = array();
-$news_glyphs_list = array();
-$news_reads_list = array();
-$news_comments_list = array();
-
-$sql = 'SELECT t1.id, t1.news, t1.title, t1.added, t1.expires, t1.graph, t2.login, t1.viewed ' . 
-	'FROM news AS t1, users AS t2 ' .
-	'WHERE (t2.id=t1.addedby AND t1.id<>"' . $id . '") ' . 
-	'ORDER BY t1.added DESC LIMIT 8';
-$result = @mysql_query($sql);
-
-
-while($newsrow = @mysql_fetch_array($result)) {
-	array_push($news_dates_list, $newsrow['added']);
-	array_push($news_ids_list, $newsrow['id']);
-	array_push($news_titles_list, $newsrow['title']);
-	
-	
-if ($newsrow['graph'] == '') {
-	$img = 'feedodal.jpg';
-	}
-else $img= substr($newsrow['graph'], 0, strlen($newsrow['graph']) - 4) . '_glyph.jpg';
-
-	
-	
-	array_push($news_glyphs_list, $img);
-	array_push($news_list, nl2br(substr($newsrow['news'], 0, 130) . ' <a href="/news/' . $newsrow['id']. '" class="rms">>></a>'));
-	
-	$sql = 'SELECT id FROM news_comments WHERE aid=' . $newsrow['id'];
-	$nums = @mysql_num_rows(@mysql_query($sql));
-	array_push($news_comments_list, $nums);
-		
-	array_push($news_reads_list, $newsrow['viewed']);
-	}
-$smarty->assign('news_dates_list', $news_dates_list);
-$smarty->assign('news_titles_list', $news_titles_list);
-$smarty->assign('news_glyphs_list', $news_glyphs_list);
-$smarty->assign('news_ids_list', $news_ids_list);
-$smarty->assign('news_list', $news_list);
-$smarty->assign('news_comments_list', $news_comments_list);
-$smarty->assign('news_reads_list', $news_reads_list);
-// **************************************************************************
-
 
 // ************************************************************* OSTATNIO WYDANE
 
@@ -77,6 +23,10 @@ $result = mysql_query($sql);
 	$ownalbum_years_list = array();
 	$ownalbum_labels_list = array();
 	$ownalbum_sns_list = array();
+	
+	$own_titles = array();
+	$own_names = array();
+	
 	while ( $row = @mysql_fetch_array($result) ) { 
 		$year = $row['year'];
 		$year = substr($year, 0, 4);  	
@@ -101,7 +51,10 @@ $result = mysql_query($sql);
 			}
 		
 		array_push($ownalbum_years_list,  $year);
-		array_push($ownalbum_labels_list, '<a href="/l/' . $row['labelurlname'] . '">' . $row['labelname'] . '</a>');	
+		array_push($ownalbum_labels_list, '<a href="/l/' . $row['labelurlname'] . '">' . $row['labelname'] . '</a>');
+		
+		array_push($own_titles, $row['title']);
+		array_push($own_names, $row['name']);
 		}	
 	$smarty->assign ('ownalbum_titles_list', $ownalbum_titles_list);
 	$smarty->assign ('ownalbum_artists_list', $ownalbum_artists_list);
@@ -110,6 +63,8 @@ $result = mysql_query($sql);
 	$smarty->assign ('ownalbum_years_list', $ownalbum_years_list);
 	$smarty->assign ('ownalbum_labels_list', $ownalbum_labels_list);
 	$smarty->assign ('ownalbum_sns_list', $ownalbum_sns_list);
+	$smarty->assign('ownalbums_names', $own_names);
+	$smarty->assign('ownalbums_titles', $own_titles);
 
 
 
@@ -135,6 +90,9 @@ $result = mysql_query($sql);
 	$album_years_list = array();
 	$album_labels_list = array();
 	$album_sns_list = array();
+	
+	$titles = array();
+	$names = array();
 	while ( $row = @mysql_fetch_array($result) ) { 
 		$year = $row['year'];
 		$year = substr($year, 0, 4);  	
@@ -153,7 +111,6 @@ $result = mysql_query($sql);
 		if (isset($row['catalog_cd'])) {
 		  array_push($album_sns_list, $row['catalog_cd']);
 	  }
-	  
 
 		if ($row['cover'] != '') {
 			array_push($album_covers_list, substr($row['cover'], 0, strlen($row['cover']) - 4) . '_75.jpg');
@@ -161,7 +118,10 @@ $result = mysql_query($sql);
 		else array_push($album_covers_list, 'nocover_75.jpg');
 
 		array_push($album_years_list,  $premier);
-		array_push($album_labels_list, '<a href="/l/' . $row['labelurlname'] . '">' . $row['labelname'] . '</a>');	
+		array_push($album_labels_list, '<a href="/l/' . $row['labelurlname'] . '">' . $row['labelname'] . '</a>');
+		
+		array_push($titles, $row['title']);
+		array_push($names, $row['name']);
 		}	
 	$smarty->assign ('album_titles_list', $album_titles_list);
 	$smarty->assign ('album_artists_list', $album_artists_list);
@@ -171,9 +131,8 @@ $result = mysql_query($sql);
 	$smarty->assign ('album_labels_list', $album_labels_list);
 	$smarty->assign ('album_sns_list', $album_sns_list);
 	
-	
-	
-	
+	$smarty->assign('albums_names', $names);
+	$smarty->assign('albums_titles', $titles);
 	
 $concerts = array();
 $concertsurlnames = array();
@@ -238,13 +197,6 @@ while($row = @mysql_fetch_array($result)){
 	array_push($weekartistalbums, '<a href="/a/' . $row['urlname'] . '">' . $row['title'] . ', ' . substr($row['year'], 0, 4) . '</a>');
 	}
 $smarty->assign('weekartistalbums', $weekartistalbums);
-
-// *********************************************************************************************
-// *********************************************************************************************
-// *********************************************************************************************
-
-	
-	
 	
 	//*****************************************************************	
 	$smarty->assign('body_template', 'site/main.tpl');

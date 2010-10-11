@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:43:33
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:54:56
          compiled from site/labels-names-list.tpl */ ?>
 <div id="sitetitle">
 <div id="titleleft">

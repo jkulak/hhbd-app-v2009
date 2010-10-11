@@ -1,7 +1,7 @@
 <?php
 
 if ( PHPENV == 'DEV' ) {
-  $dbHost = 'localhost';
+  $dbHost = 'localhost:3306';
   $dbUser = 'www';
   $dbPassword = 'www';
   $dbSchema = 'hhbdrebuild';

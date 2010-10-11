@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:43:38
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:54:51
          compiled from site/albums.tpl */ ?>
 <div id="sitetitle">
 <div id="titleleft">

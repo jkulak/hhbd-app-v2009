@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:48:30
+<?php /* Smarty version 2.6.9, created on 2010-10-10 13:57:24
          compiled from site/name.tpl */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "site/part-site-title.tpl", 'smarty_include_vars' => array()));

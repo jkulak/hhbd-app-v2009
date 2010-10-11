@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:53:47
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:55:04
          compiled from site/album.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'cycle', 'site/album.tpl', 165, false),)), $this); ?>

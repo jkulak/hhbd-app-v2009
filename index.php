@@ -29,11 +29,6 @@ if (isset($addres[2])) {
   $add = $addres[2];
 }
 
-
-// TODO: get rid of below stats 
-//include ('include/visitor-stats.php');
-
-
 // header stats
 include ('header-stats.php');
 
@@ -49,12 +44,8 @@ if (isset($_SESSION['errmsg'])) {
 	$smarty->assign('errmsg', $_SESSION['errmsg']);
 	$_SESSION['errmsg'] = null;
 	}
-	
 
-
-include ('history.php');
-
-//$smarty->debugging = true;
+$smarty->debugging = false;
 
 $smarty->display('index.tpl');
 

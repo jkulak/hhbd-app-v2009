@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:41:26
+<?php /* Smarty version 2.6.9, created on 2010-10-10 11:22:49
          compiled from part-loginform.tpl */ ?>
 <div id="loginform" class="main">
 <?php if ($this->_tpl_vars['hhbdlogin'] != ""): ?>

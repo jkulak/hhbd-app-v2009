@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 15:58:07
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:55:40
          compiled from site/recommend-site-form.tpl */ ?>
 <div id="sitetitle">
 <div id="titleleft">

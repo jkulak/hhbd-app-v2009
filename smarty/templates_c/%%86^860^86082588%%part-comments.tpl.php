@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2008-11-23 14:48:30
+<?php /* Smarty version 2.6.9, created on 2010-10-10 12:55:04
          compiled from site/part-comments.tpl */ ?>
 <?php if ($this->_tpl_vars['add'] == 'komentarze'):  unset($this->_sections['id']);
 $this->_sections['id']['name'] = 'id';
