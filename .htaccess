@@ -5,8 +5,7 @@ RewriteCond %{HTTP_HOST} ^hhbd.kosiarka/(.*)
 RewriteCond %{REQUEST_URI} !^/imgs
 RewriteRule ^(.*)$ http://hhbd.kosiarka/$1 [R=301,L] 
 
-
 RewriteCond %{REQUEST_URI} !^/admin
 RewriteCond %{REQUEST_URI} !^/xadmin
 
-RewriteRule ^([�0-9a-zA-Z_\/]*)$ /index.php?url=$1 [L]
+RewriteRule ^([¯0-9a-zA-Z_\/\-ĘÓĄŚŁŻŹĆŃęóąśłżźćń,+\%]*)(.html)*$ /index.php?url=$1 [L]

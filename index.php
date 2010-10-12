@@ -3,6 +3,11 @@
 defined('PHPENV') ||
   define('PHPENV', (getenv('PHPENV') ? getenv('PHPENV') : 'PROD'));
 
+defined('APPLICATION_PATH')
+    || define('APPLICATION_PATH', realpath(dirname(__FILE__)));
+
+define('MODELS_DIRECTORY', APPLICATION_PATH . '/Models');
+define('LIBRARY_DIRECTORY', APPLICATION_PATH . '/Library');
 
 error_reporting(E_ALL & ~E_NOTICE);
 
@@ -13,7 +18,7 @@ $smarty = new SmartyDir();
 
 include ('include/connect-to-database.php');
 include ('include/date-functions.php');
-include ('include/string-functions.php');
+
 
 $addres = explode('/', $_GET['url']);
 

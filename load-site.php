@@ -67,9 +67,12 @@ $s_arr = array( 'glowna' => 'site/main',
 				'promomix' => 'site/get-promomix',
 				'stronawytworni' => 'site/go-labelsite',
 				'stronakoncertu' => 'site/go-concertsite',
-				'stronawykonawcy' => 'site/go-namesite');
+				'stronawykonawcy' => 'site/go-namesite',
 				
+				'mapa-strony' => 'site/Sitemap'
+				);
 				
+
 if (($s == '')) $s = 'glowna';
 
 // if $s jest ktoryms ktorych trzeba szukac to search
